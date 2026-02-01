@@ -4,28 +4,23 @@ public:
         if (nums.empty()) return 0;
 
         sort(nums.begin(), nums.end());
-        int n = nums.size();
 
         int longest = 1;
         int current = 1;
-        int i = 1;
 
-        while (i < n) {
+        for (int i = 1; i < nums.size(); i++) {
             if (nums[i] == nums[i - 1]) {
-                i++; // skip duplicate
+                continue;                  // skip duplicate
             }
-            else if (nums[i] == nums[i - 1] + 1) {
-                current++;
-                i++; // move forward
+            else if (nums[i] - nums[i - 1] == 1) {
+                current++;                 // consecutive
             }
             else {
                 longest = max(longest, current);
-                current = 1;
-                i++; // reset and move forward
+                current = 1;               // reset
             }
         }
 
         return max(longest, current);
     }
 };
-
