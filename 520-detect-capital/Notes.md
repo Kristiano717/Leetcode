@@ -1,0 +1,1 @@
+<h2>detect-capital Notes</h2><hr>[ Time taken: 1hr 8m 28s ]
