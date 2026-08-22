@@ -4,7 +4,7 @@ public:
         unordered_set<ListNode*> stt;
 
         while (head!=nullptr) {
-            if (stt.find(head) != stt.end())
+            if /*(stt.find(head) != stt.end())*/  (stt.count(head))
                 return head;
 
             stt.insert(head);
