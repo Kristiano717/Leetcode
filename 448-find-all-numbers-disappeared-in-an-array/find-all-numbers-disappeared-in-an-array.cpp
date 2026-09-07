@@ -1,28 +1,21 @@
-class Solution {
+class Solution {// I HAVE ALSO THE O(1) SOLTUION IN SUBMISSIONS.
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
-        int n=nums.size();
-        for(int i=0;i<n;i++)
-        {
-            int x = abs(nums[i])-1;
-            if(nums[x]>0)
-            {
-                nums[x]=-nums[x];
+        int n = nums.size();
+        unordered_set<int> st;
 
-            }
+        for (int x : nums) {
+            st.insert(x);
+        }
 
+        vector<int> result;
 
-        } 
-        vector<int>result;
-        for(int i=0;i<n;i++)
-        {
-            if(nums[i]>0)
-            {
-                result.push_back(i+1);
+        for (int i = 1; i <= n; i++) {
+            if (st.find(i) == st.end()) {
+                result.push_back(i);
             }
         }
 
         return result;
-
     }
 };
